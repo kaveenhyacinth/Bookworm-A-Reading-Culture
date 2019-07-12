@@ -1,0 +1,198 @@
+body{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../Resources/wooden-back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.sidenav {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden;
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  padding: 0 30px;
+  margin-top: 70px;
+  transition: margin-left .7s;
+  /* padding: 20px; */
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.topnav{
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+
+  display: flex;
+
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px 10px 30px;
+  box-sizing: border-box;
+  transition: .5s;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/*Top navigation bar :start*/
+.topnav .black{
+  background-color: rgba(0,0,0,.8);
+  height: 80px;
+  padding: 10px 50px
+}
+.topnav .logo{
+  width: 150px;
+  transition: 1s;
+}
+
+.topnav.black .logo img{
+  height: 60px;
+}
+
+#navbar{
+  display: flex;
+  margin-left: auto;
+}
+
+#navbar a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  transition: .5s;
+} 
+#logout{
+  border: none;
+  padding: 5px 10px;
+  background-color: red;
+  font-size: 11pt;
+  color: white;
+}
+
+#navbar a:hover, #navbar .active{
+  color: white;
+  background-color: red;
+}
+/*Top navigation bar :end*/
+
+#cat{
+  font-size: 36pt;
+  color: white;
+  padding-top: 5px;
+}
+
+#cat1{
+  font-size: 18pt;
+  color: white;
+}
+
+#grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+#grid > .container{
+  /* height: 400px; */
+  width: 300px;
+  background: #ffffff;
+  margin-top: 7%;
+  box-shadow: 8px 10px 6px #000000;
+  /* border-radius: 20px; */
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+#grid .card{
+  height: 200px;
+  width: 300px;
+  background: cover;
+  background-size: cover;
+}
+#grid .container h2{
+  text-align: center;
+  margin-top: 0px;
+  color: #000000;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  padding: 6px;
+}
+
+#grid .container h4{
+  text-align: center;
+  margin-top: 0px;
+  color: #000000;
+  padding: 5px;
+}
+#grid .container p{
+  padding: 0 20px;
+  letter-spacing: 2px;
+}
+
+#grid .txt{
+  display: none;
+}
+
+#grid .btn{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+#grid .button {
+  width: 100px;
+  height: 40px;
+  background-color: brown;
+  font-size: 12px;
+  border-radius: 2px;
+  border: none;
+  margin: 3px;
+  transition-duration: 0.4s;
+  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+  color: #ffffff;
+  
+}
+#grid .button:hover{
+  background-color: red;
+   color: white;
+}
+
+
+

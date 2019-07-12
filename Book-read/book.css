@@ -1,0 +1,105 @@
+html,body{
+    background: white;
+}
+
+header{
+    height: 58px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color:#1B1B1B;
+    color: white;
+    box-shadow: 0 8px 4px -8px gray;
+}
+
+.logo{
+    height: 58px;
+    width: 180px;
+}
+
+.topnav{
+    height: 50px;
+    padding: 2px 20px;
+
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+#sInc{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.fontSize{
+    color: #ffffff;
+    background-color: #3D4F73;
+    text-transform: uppercase;
+    font-family: 'Nanum Gothic', sans-serif;
+    transition: .5s;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#btnDark{
+    margin-left: 20px;
+    color: white;
+    background-color:brown;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: none;
+    border-radius: 10px;
+    transition: .5s;
+    padding: 10px;
+}
+
+#btnDark:hover, .fontSize:hover{
+    background-color: red;  
+}
+
+#main{
+    margin: 0 100px;
+}
+
+#title{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 36pt;
+    margin-top: 100px;
+    text-align: center;
+    margin-right: auto
+}
+
+#author{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16pt;
+    text-align: center;
+}
+
+#para{
+    font-family: 'Nunito', sans-serif;
+    text-align: justify;
+    margin: 10px 100px;
+    font-size: 18pt;
+}
+
+
+#navbar{
+    margin-left: auto;
+  }
+  
+  #navbar a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    transition: .5s;
+  } 
+  
+  #navbar a:hover, #navbar .active{
+    color: white;
+    background-color: red;
+  }

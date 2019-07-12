@@ -1,0 +1,203 @@
+
+html,body{
+   margin: 0%;
+   padding: 0;
+   height: 100%;
+   width: 100%; 
+   font-family: Arial, Helvetica, sans-serif;
+}
+/*body consist of entire page*/
+body{
+    background-image: url("../Resources/book-back.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header{
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.8);
+
+    height: 50px;
+    width: 100%;
+}
+
+#img{
+    width: 150px;
+}
+/*this div class commonly affect the form features*/
+.Enter-data{
+    border: none;
+    border-radius: 5px;
+    padding: 2em 5em 2em 5em;
+    position: fixed;
+    top: 8%;
+    left: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/*The main heading*/
+/* #jon{
+    position: fixed;  
+    top: 5%;  
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: lighter;
+    color: #fff;
+    font-size: 48px;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.quote{
+    position: fixed;
+    top: 35%;
+    left: 13%;
+    color: white;
+    font-size: 24pt;
+    padding: 80px;
+    text-align: justify;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+} */
+
+/*changes for all input element*/
+input{
+    width: 500px;
+    height: 50px;
+    background:white rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+/*changes for textarea element*/
+textarea{
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 0.5em;
+}
+
+/*changes for all input,textarea,button elements commonly*/
+input, textarea,  button{
+    display: block;
+    outline: none;
+    border-radius: 5px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size:20px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    margin-top: 6px;
+    border: none;
+}
+.error {
+    background: red;
+}
+/*changes for all label element*/
+label{
+    font-size: 25px;
+    color: #fff;
+}
+/*properties set for select container */
+.info-input{
+    height: 40px;
+    display: flex;
+}
+/*properties set for select element*/
+select{
+    display: block;
+    margin:6px 0 30px 0;
+    width: 150px;
+    height: 30px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: lighter;
+    border-radius: 5px; 
+    border: none;
+}
+
+/*below properties are set to affect the div class="upload cover" container*/
+.upload-cover {  
+    margin-left: 100px;  
+}
+.upload-cover input{
+    height: 30px; 
+}
+.upload-cover label{
+    margin-left: 10px;
+}
+input #add-img{
+    font-size: 5px;
+    border: 2px;
+    flood-color: #BF9B7A;
+}
+
+/*div container which contains the submit the form and proceed to next page button*/
+#submit{
+    height: 300px;
+    text-decoration: none;
+    color: white;
+}
+/*properties set to sub elements of button element which allow to visit the corresponding html page */
+a{
+    text-decoration: none;
+    color: white;
+} 
+a:visited{
+    text-decoration:none;
+    color: inherit;
+}
+/*properties added to button element*/
+#submit > input{
+    margin-left:130px;
+    margin-right: auto; 
+    margin-top: 90px;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    background: #BF9B7A;
+    font-weight: bolder;
+    color:#000;
+    cursor: context-menu;
+}
+/*properties added to button element when it's hovered*/
+#submit >input:hover{
+    transition: 0.4s;
+    width: 250px;
+    background: brown;
+    font-weight: lighter;
+    font-size: 16px;
+    color: wheat;
+    border: 0px;
+    border-radius: 5px;
+    margin-left:100px; 
+    margin-right: 50px;
+}
+
+
+
+#navbar{
+    margin-left: auto;
+    margin-right: 30px;
+  }
+  
+  #navbar a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    transition: .5s;
+  } 
+  
+  #navbar a:hover, #navbar .active{
+    color: white;
+    background-color: red;
+  }
+
+
