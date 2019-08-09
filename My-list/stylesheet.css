@@ -83,6 +83,21 @@ body{
   height: 60px;
 }
 
+#search{
+  border: none;
+  margin-left: 10px;
+  border-radius: 5px;
+  height: 20px;
+}
+
+#sr{
+  border: none;
+  padding: 3px 10px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+
 #navbar{
   display: flex;
   margin-left: auto;
@@ -95,6 +110,19 @@ body{
   padding: 3px 8px;
   transition: .5s;
 } 
+
+.prof{
+  width: 30px;
+  height: 30px;
+}
+
+
+#user{
+  color: white;
+  padding: 4px 30px 4px 10px;
+}
+
+
 #logout{
   border: none;
   padding: 5px 10px;

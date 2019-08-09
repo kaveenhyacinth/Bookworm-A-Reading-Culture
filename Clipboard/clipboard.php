@@ -2,6 +2,27 @@
     session_start();
     $_SESSION['c_error'] = "";
 
+    $dbHost = "localhost";
+    $dbuser = "root";
+    $dbPassword = "";
+    $dbName = "db_bookworm";
+    $user = $_SESSION['login_user'];
+
+    $conn = mysqli_connect($dbHost, $dbuser, $dbPassword, $dbName);
+    if($conn->connect_error){
+        die("Connection Failed" . $conn->connect_error);
+    }
+
+    $user_sql = "SELECT f_name, l_name FROM tbl_user WHERE username='$user'";
+    $user_result = mysqli_query($conn, $user_sql);
+
+    if($user_result->num_rows > 0){
+        while($user_data = $user_result->fetch_assoc()){
+            $_SESSION['fname'] = $user_data["f_name"];
+            $_SESSION['lname'] = $user_data["l_name"];
+        }
+    } 
+
     if(isset($_POST['logout'])){
         session_destroy();
 
@@ -65,7 +86,7 @@
     <main>
         <section id="write-book">
             <div class="h2tags">
-                <?php echo "<span id='title'>".$_SESSION['heading']."</span><span id=author>by ".$_SESSION['login_user']."</span><hr>"; ?>
+                <?php echo "<span id='title'>".$_SESSION['heading']."</span><span id=author>by ".$_SESSION['fname']." ".$_SESSION['lname']."</span><hr>"; ?>
             </div>
             <P id=error><b><?php echo $_SESSION['c_error']; ?></b></P>
             <form action="" method="POST" enctype="multipart/form-data">

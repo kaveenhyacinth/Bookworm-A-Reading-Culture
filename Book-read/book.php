@@ -52,6 +52,30 @@
                 }
             }
 
+            if(isset($_POST['delete'])){
+                $id = $_POST['bookId'];
+                $username = $_SESSION['login_user'];
+                $dbHost = "localhost";
+                $dbuser = "root";
+                $dbPassword = "";
+                $dbName = "db_bookworm";
+    
+                $conn = mysqli_connect($dbHost, $dbuser, $dbPassword, $dbName);
+                if($conn->connect_error){
+                    die("Connection Failed" . $conn->connect_error);
+                }
+    
+                $delete = "DELETE FROM tbl_archive WHERE book_id = $id";
+                $i_result = mysqli_query($conn, $delete);
+
+                if($i_result){
+                    header("refresh:0.1; url=../My-publications/my-pub.php");
+                }
+                else{
+                    header("refresh:0.1; url=../My-publications/my-pub.php");
+                }
+            }
+
             if(isset($_POST['add'])){
                 $id = $_POST['bookId'];
                 $username = $_SESSION['login_user'];
@@ -92,9 +116,20 @@
     
                 if($result->num_rows > 0){
                     while($data = $result->fetch_assoc()){
+                        $au = $data["author_name"];
+
+                        $user_sql = "SELECT f_name, l_name FROM tbl_user WHERE username='$au'";
+                        $user_result = mysqli_query($conn, $user_sql);
+
+                        if($user_result->num_rows > 0){
+                            while($user_data = $user_result->fetch_assoc()){
+                                $_SESSION['fname'] = $user_data["f_name"];
+                                $_SESSION['lname'] = $user_data["l_name"];
+                            }
+                        }
                         echo 
                         "<h1 id='title'>".$data['book_name']."</h1>
-                        <h3 id='author'>by ".$data['author_name']."</h3>
+                        <h3 id='author'>by ".$_SESSION['fname']." ".$_SESSION['lname']."</h3>
                         <br>
                         <div id='para'>".$data['book_content']."</div>";
                     }

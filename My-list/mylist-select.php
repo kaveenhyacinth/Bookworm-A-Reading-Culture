@@ -12,6 +12,17 @@
         die("Connection Failed" . $conn->connect_error);
     }
 
+    $user_sql = "SELECT f_name, l_name, gender FROM tbl_user WHERE username='$user'";
+    $user_result = mysqli_query($conn, $user_sql);
+
+    if($user_result->num_rows > 0){
+        while($user_data = $user_result->fetch_assoc()){
+            $_SESSION['fname'] = $user_data["f_name"];
+            $_SESSION['lname'] = $user_data["l_name"];
+            $_SESSION['gender'] = $user_data["gender"];
+        }
+    } 
+
     if(isset($_POST['logout'])){
         session_destroy();
 
@@ -71,13 +82,26 @@
         <section class="topnav" id="topnav">
             <span style="cursor: pointer; color:white" onclick="openNav()">&#9776;</span>
             <img src="..\Resources\logo.png" alt="Logo" class="logo">
+            <form id="search" action="..\Search\search.php" method="post">
+                <input type="text" placeholder="What's Up?" name="searchtxt" id="search">
+                <input type="submit" value="Search" name="search" id="sr">
+            </form>
             <nav id="navbar">
+                <?php
+                    if($_SESSION['gender'] == "Male"){
+                        echo "<img src='..\Resources\mprof.png' alt='Logo' class='prof'>";
+                    } 
+                    else if($_SESSION['gender'] == "Female"){
+                        echo "<img src='..\Resources\wprof.png' alt='Logo' class='prof'>";
+                    }
+                ?>
+                <span id="user"><?php echo $_SESSION['fname']." ".$_SESSION['lname'] ?></span>
                 <form action="" method="post">
                     <input type="submit" value="Logout" name="logout" id="logout">
                 </form>
             </nav>  
         </section>
-        <span id="cat">My Library</span><br><span id="cat1">Let's nurture your bookworm...</span><hr>
+        <span id="cat"><?php echo $_SESSION['fname']."'s "?> Library</span><br><span id="cat1">Let's nurture your bookworm...</span><hr>
         <section id="grid">
             <?php
                 $conn = mysqli_connect($dbHost, $dbuser, $dbPassword, $dbName);
@@ -92,11 +116,23 @@
 
                 if($m_result->num_rows > 0){
                     while($m_data = $m_result->fetch_assoc()){
+
+                        $au = $m_data["author_name"];
+
+                        $user_sql = "SELECT f_name, l_name FROM tbl_user WHERE username='$au'";
+                        $user_result = mysqli_query($conn, $user_sql);
+
+                        if($user_result->num_rows > 0){
+                            while($user_data = $user_result->fetch_assoc()){
+                                $_SESSION['fname'] = $user_data["f_name"];
+                                $_SESSION['lname'] = $user_data["l_name"];
+                            }
+                        }
                         echo 
                         "<section class='container'>
                             <img src='data:image/jpeg; base64,".base64_encode($m_data['book_img'])."' class='card'></img>
                             <h2>" . $m_data["book_name"] . "</h2>
-                            <h4>by " . $m_data["author_name"] . "</h4>
+                            <h4>by " . $_SESSION['fname'] . " " . $_SESSION['lname'] . "</h4>
                             <p>" . $m_data["book_description"] . "</p>
                             <form action='../Book-read/book.php' method='post'>
                                 <input class='txt' type='text' name='bookId' value='" . $m_data['book_id'] . "'>
