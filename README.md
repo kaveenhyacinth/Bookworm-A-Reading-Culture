@@ -1,3 +1,3 @@
 # Bookworm-A-Reading-Culture
 
-This is a university assignment project. 
+An online open library. Anyone can write, anyone can read!
